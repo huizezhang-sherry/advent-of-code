@@ -1,10 +1,12 @@
 library(tidyverse)
 dt <- readLines("data/day6-input.txt")
 
+# part 1
 str_split(paste0(dt, collapse = " "), "  ")[[1]] %>%
   str_split("") %>%
   map_dbl(~unique(.x) %>% str_remove_all(" ") %>% paste(collapse = "") %>% nchar) %>% sum()
 
+# part 2
 ans <- str_split(paste0(dt, collapse = " "), "  ")[[1]] %>%
   str_split("")
 
@@ -21,5 +23,6 @@ ans %>% map_chr(~paste(.x, collapse = "")) %>% as_tibble() %>%
   add_count(letter) %>%
   mutate(n_person = n_distinct(col)) %>%
   filter(n == n_person) %>%
-  distinct(letter)
+  distinct(letter) %>%
+  nrow()
 
