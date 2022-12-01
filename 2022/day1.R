@@ -1,5 +1,5 @@
 # Part 1
-raw <- readLines(here::here("data-2022/day1.txt")) %>% as.numeric()
+raw <- readLines(here::here("data-2022/day1.txt")) |>  as.numeric()
 sum <-  rep(0, length = sum(is.na(raw)))
 i <- 1; j <- 1
 while (i <= length(raw)){
